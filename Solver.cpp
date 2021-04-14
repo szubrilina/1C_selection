@@ -7,6 +7,7 @@
 #include <algorithm>
 #include <set>
 #include <functional>
+#include <iostream>
 
 
 Solver::Solver() {
@@ -17,7 +18,16 @@ Solver::Solver() {
 };
 
 void Solver::getIntput() {
-    //TODO
+    std::string suit;
+  int rank;
+  for (int i = 0; i < 8; ++i) {
+    for (int j = 0; j < 9; ++j) {
+      std::cin  >> suit >> rank;
+      all_cards[i * 8 + j] = Card(rank);
+      // pointer will be valid
+      all_packes[i].push_back(&all_cards.back());
+    }
+  }
 }
 
 bool Solver::findAnswer() {
